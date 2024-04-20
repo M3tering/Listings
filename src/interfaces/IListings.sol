@@ -15,27 +15,13 @@ interface IListings {
         address owner;
     }
 
-    event Claim(
-        address indexed to,
-        uint256 indexed amount,
-        uint256 indexed timestamp
-    );
+    event Claim(address indexed to, uint256 indexed amount, uint256 indexed timestamp);
 
-    event CreatedListing(
-        address indexed owner,
-        uint256 indexed tokenId,
-        uint256 indexed price
-    );
+    event CreatedListing(address indexed owner, uint256 indexed tokenId, uint256 indexed price);
 
     event RemovedListing(address indexed owner, uint256 indexed tokenId);
 
-    event PurchasedListing(
-        address indexed buyer,
-        uint256 indexed tokenId,
-        uint256 indexed price
-    );
-
-    function setNftContract(address registry) external;
+    event PurchasedListing(address indexed buyer, uint256 indexed tokenId, uint256 indexed price);
 
     function createListing(uint256 tokenId, uint256 price) external;
 
@@ -51,9 +37,7 @@ interface IListings {
 
     function getAllListing() external view returns (Listing[] memory);
 
-    function getListingByIndex(
-        uint256 index
-    ) external view returns (Listing memory);
+    function getListingByIndex(uint256 index) external view returns (Listing memory);
 
     function totalListings() external view returns (uint256);
 }
